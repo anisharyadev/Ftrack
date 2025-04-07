@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Login/Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        
+        .otp-container {
+            display: none;
+        }
+        
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        .success {
+            color: green;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        .resend-otp {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .resend-otp a {
+            color: #4CAF50;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login/Signup with OTP</h2>
+        
+        <div id="phone-form">
+            <div class="form-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" placeholder="Enter 10-digit mobile number" maxlength="10">
+                <div id="phone-error" class="error"></div>
+            </div>
+            <button id="send-otp-btn">Send OTP</button>
+        </div>
+        
+        <div id="otp-form" class="otp-container">
+            <div class="form-group">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" placeholder="Enter 6-digit OTP" maxlength="6">
+                <div id="otp-error" class="error"></div>
+                <div id="otp-success" class="success"></div>
+            </div>
+            <div class="resend-otp">
+                Didn't receive OTP? <a id="resend-otp">Resend</a>
+            </div>
+            <button id="verify-otp-btn">Verify OTP</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
